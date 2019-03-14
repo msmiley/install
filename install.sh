@@ -36,10 +36,8 @@ if [ ! -d "$C9_DIR" ]; then
 fi
 
 VERSION=1
-NODE_VERSION=v6.3.1
-NODE_VERSION_ARM_PI=v0.10.28
-NPM=/usr/local/bin/npm
-NODE=/usr/local/bin/node
+NPM=`which npm`
+NODE=`which node`
 
 export TMP=$C9_DIR/tmp
 export TMPDIR=$TMP
