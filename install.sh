@@ -38,8 +38,8 @@ fi
 VERSION=1
 NODE_VERSION=v6.3.1
 NODE_VERSION_ARM_PI=v0.10.28
-NPM=$C9_DIR/node/bin/npm
-NODE=$C9_DIR/node/bin/node
+NPM=/usr/local/bin/npm
+NODE=/usr/local/bin/node
 
 export TMP=$C9_DIR/tmp
 export TMPDIR=$TMP
@@ -267,17 +267,8 @@ node(){
   rm -rf node 
   rm -rf node.tar.gz
   
-  echo :Installing Node $NODE_VERSION
+  echo :Using system installed node and npm
   
-  DOWNLOAD https://nodejs.org/dist/"$NODE_VERSION/node-$NODE_VERSION.tar.gz" node.tar.gz       
-  tar xzf node.tar.gz                                                                          
-  cd node-$NODE_VERSION                                                                   
-  ./configure --prefix=/root/.c9/node                                 
-  make                                                                                    
-  make install                                                                                                   
-  cd ..                                                                                   
-  rm -rf node.tar.gz node-$NODE_VERSION
-
   # use local npm cache
   "$NPM" config -g set cache  "$C9_DIR/tmp/.npm"
   ensure_local_gyp
