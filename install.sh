@@ -265,7 +265,12 @@ node(){
   rm -rf node 
   rm -rf node.tar.gz
   
-  echo :Using system installed node and npm
+  echo :Symlinking system installed node and npm
+  
+  mkdir -p $C9_DIR/node/bin
+  
+  ln -s $NODE $C9_DIR/node/bin/node
+  ln -s $NPM $C9_DIR/node/bin/npm
   
   # use local npm cache
   "$NPM" config -g set cache  "$C9_DIR/tmp/.npm"
