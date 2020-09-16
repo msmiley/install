@@ -398,7 +398,7 @@ nak(){
 
 ptyjs(){
   echo :Installing pty.js
-  "$NPM" install node-pty-prebuilt@0.7.3
+  "$NPM" install node-pty-prebuilt@0.8.1
 
   if ! hasPty; then
     echo "Unknown exception installing pty.js"
